@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="gaintegration">
+ <head>
+ <title>GA Integration</title>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-78264063-1', 'auto');
+
+console.log(ga.q);
+ga(function(tracker) {
+  console.log(tracker);
+  tracker.set('page', 'Home Page');
+});
+
+ga(function() {
+  //If you Know the tracker name 
+  console.log(ga.getByName('t0'));
+});
+
+
+ga(function() {
+  //Get All the trackers
+  console.log(ga.getAll());
+});
+ga('send', 'pageview','page');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+  </head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="lib/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<body>
+
+<div ng-controller="homepage">
+ 	<p>Name : <input type="text" ng-model="name"></p>
+ 	<h1>Hello {{name}}</h1>
+ 	{{test}}
+</div>
+
+</body>
+</html>
